@@ -69,3 +69,5 @@ qcom.bluetooth.soc=rome
 # Media
 media.stagefright.legacyencoder=true
 media.stagefright.less-secure=true
+
+ro.optimizedaosp.version=1.0

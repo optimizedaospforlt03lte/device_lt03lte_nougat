@@ -48,7 +48,16 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
-    frameworks/native/data/etc/android.software.freeform_window_management.xml:system/etc/permissions/android.software.freeform_window_management.xml
+    frameworks/native/data/etc/android.software.freeform_window_management.xml:system/etc/permissions/android.software.freeform_window_management.xml \
+    
+    
+# Enable SIP+VoIP
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
+
+# Enable wireless Xbox 360 controller support
+PRODUCT_COPY_FILES += \
+    frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -89,7 +98,8 @@ PRODUCT_PACKAGES += \
 
 # Media profiles
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 # MSM IPC Router security configuration
 PRODUCT_COPY_FILES += \
@@ -158,9 +168,37 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
+# Misc packages
+PRODUCT_PACKAGES += \
+    e2fsck \
+    mke2fs \
+    tune2fs \
+    bash \
+    powertop \
+    mount.exfat \
+    fsck.exfat \
+    mkfs.exfat \
+    mkfs.f2fs \
+    fsck.f2fs \
+    fibmap.f2fs \
+    mkfs.ntfs \
+    fsck.ntfs \
+    mount.ntfs \
+    charger_res_images
+    
 # Allow lockscreen rotation
 PRODUCT_PROPERTY_OVERRIDES += \
     lockscreen.rot_override=true
+    
+    
+PRODUCT_PROPERTY_OVERRIDES += \
+    keyguard.no_require_sim=true \
+    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
+    ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
+    ro.com.android.wifi-watchlist=GoogleGuest \
+    ro.setupwizard.enterprise_mode=1 \
+    ro.com.android.dateformat=MM-dd-yyyy \
+    ro.com.android.dataroaming=false
     
 # Default Properties
 ADDITIONAL_DEFAULT_PROPERTIES += \

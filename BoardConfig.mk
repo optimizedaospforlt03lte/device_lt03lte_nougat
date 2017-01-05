@@ -30,7 +30,7 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/releasetools/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 enforcing=0 androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
@@ -42,6 +42,9 @@ TARGET_KERNEL_SOURCE := kernel/samsung/lt03lte
 AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
 USE_CUSTOM_AUDIO_POLICY := 1
 
+# Block-Based OTA
+#BLOCK_BASED_OTA := false
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_CUSTOM_BT_CONFIG := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
@@ -52,15 +55,11 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_PROVIDES_CAMERA_HAL := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-BOARD_GLOBAL_CFLAGS += -DMETADATA_CAMERA_SOURCE
 MALLOC_SVELTE := true
 TARGET_NEEDS_GCC_LIBC := true
 
 # Legacy BLOB Support
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
-
-# CMHW
-BOARD_HARDWARE_CLASS += device/samsung/lt03lte/cmhw
 
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE := 11534336
