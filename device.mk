@@ -184,6 +184,7 @@ PRODUCT_PACKAGES += \
     mkfs.ntfs \
     fsck.ntfs \
     mount.ntfs \
+    f2fstat \
     charger_res_images
     
 # Allow lockscreen rotation
