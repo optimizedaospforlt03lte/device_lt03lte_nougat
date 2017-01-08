@@ -156,6 +156,10 @@ PRODUCT_COPY_FILES += \
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/etc/thermal-engine-8974.conf
+    
+# Changelog
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/Changelog.txt:system/etc/Changelog.txt
 
 # WiFi
 PRODUCT_PACKAGES += \
