@@ -98,8 +98,7 @@ PRODUCT_PACKAGES += \
 
 # Media profiles
 PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
+     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 # MSM IPC Router security configuration
 PRODUCT_COPY_FILES += \
@@ -189,8 +188,29 @@ PRODUCT_PACKAGES += \
     fsck.ntfs \
     mount.ntfs \
     f2fstat \
-    charger_res_images
+    charger_res_images \
+    SoundRecorder \
+    masquerade
     
+# Substratum
+PRODUCT_COPY_FILES += \
+vendor/aosp/prebuilt/app/Substratum/Substratum.apk:system/app/Substratum/Substratum.apk
+   
+# Telephony packages
+PRODUCT_PACKAGES += \
+    CellBroadcastReceiver \
+    Stk
+
+# Stagefright FFMPEG plugin
+PRODUCT_PACKAGES += \
+    libffmpeg_extractor \
+    libffmpeg_omx \
+    media_codecs_ffmpeg.xml
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.sf.omx-plugin=libffmpeg_omx.so \
+    media.sf.extractor-plugin=libffmpeg_extractor.so
+
 # Allow lockscreen rotation
 PRODUCT_PROPERTY_OVERRIDES += \
     lockscreen.rot_override=true
