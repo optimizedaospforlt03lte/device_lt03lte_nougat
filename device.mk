@@ -211,6 +211,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.sf.omx-plugin=libffmpeg_omx.so \
     media.sf.extractor-plugin=libffmpeg_extractor.so
 
+# init
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/etc/init.local.rc:root/init.aosp.rc
+
+# init.d support
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/bin/sysinit:system/bin/sysinit \
+    vendor/aosp/prebuilt/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/aosp/prebuilt/etc/init.d/90userinit:system/etc/init.d/90userinit
+
 # Allow lockscreen rotation
 PRODUCT_PROPERTY_OVERRIDES += \
     lockscreen.rot_override=true
