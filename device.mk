@@ -190,6 +190,7 @@ PRODUCT_PACKAGES += \
     f2fstat \
     charger_res_images \
     SoundRecorder \
+    bash \
     masquerade
     
 # Substratum
