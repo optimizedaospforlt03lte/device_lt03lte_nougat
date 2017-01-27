@@ -37,6 +37,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
 TARGET_KERNEL_CONFIG := cyanogenmod_lt03lte_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 TARGET_KERNEL_SOURCE := kernel/samsung/lt03lte
+LZMA_RAMDISK_TARGETS := boot,recovery
 
 # Audio
 AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
@@ -44,6 +45,9 @@ USE_CUSTOM_AUDIO_POLICY := 1
 
 # Block-Based OTA
 #BLOCK_BASED_OTA := false
+
+# Recommend using the non debug dexpreopter
+USE_DEX2OAT_DEBUG ?= false
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
