@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_lt03lte.mk
+    $(LOCAL_DIR)/omni_lt03lte.mk
